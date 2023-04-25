@@ -1,0 +1,29 @@
+/*
+Welcome to my Variables .css. 
+
+This can get VERY long so I like to do something I think is pretty cool. I call it "Style Bookmarking".
+
+Basically, I have these "Bookmarks" and I will list them below, all you have to do is CTRL + F or CMD + F
+and search for that name but with greater than and less than signs around it so you can find the exact bookmark
+
+so for example, I will list out:
+- DEFAULT
+- BOOKMARK
+- HELLO
+
+and you do CTRL + F or CMD + F and you type <DEFAULT> for example, then you will jump to the exact section you're
+looking to change
+
+Now I will list the bookmarks:
+- CARDS
+*/
+
+:root {
+  /* <CARDS> */
+  --card-color: #000;
+  --initial-y: none;
+  --flip-angle: 20deg;
+  --slide-out-time: none;
+  --slide-animation: slide-out-back;
+  --is-inverse: 1;
+}

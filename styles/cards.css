@@ -1,0 +1,83 @@
+@import "variables.css";
+
+.card {
+  background-color: transparent;
+  width: 50em;
+  height: 30em;
+  perspective: 1000px;
+  font-family: "Work Sans", sans-serif;
+}
+
+.card-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.4s;
+  transform-style: preserve-3d;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.flip-card {
+  transform: rotateX(180deg);
+}
+
+.card-front,
+.card-back {
+  background-color: var(--card-color);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-y: auto;
+}
+
+.card-front {
+  background-color: #bbb;
+  color: black;
+}
+
+.card-back {
+  color: white;
+  transform: rotateY(180deg) scale(-1, -1);
+}
+
+.slide-out {
+  animation: var(--slide-animation) var(--slide-out-time) ease-in-out forwards;
+}
+
+@keyframes slide-out {
+  0% {
+    transform: rotateX(0deg) translateX(0%) rotateY(0deg);
+  }
+
+  50% {
+    transform: rotateX(0deg) translateX(calc(20% * var(--is-inverse)))
+      rotateY(calc(-25deg * var(--is-inverse)))
+      rotate(calc(15deg * var(--is-inverse)));
+  }
+
+  100% {
+    transform: rotateX(0deg) translateX(0%) rotateY(0deg);
+  }
+}
+
+@keyframes slide-out-back {
+  0% {
+    transform: rotateX(180deg) translateX(0%) rotateY(0deg);
+  }
+
+  50% {
+    transform: rotateX(180deg) translateX(calc(20% * var(--is-inverse)))
+      rotateY(calc(25deg * var(--is-inverse)))
+      rotate(calc(-15deg * var(--is-inverse)));
+  }
+
+  100% {
+    transform: rotateX(180deg) translateX(0%) rotateY(0deg);
+  }
+}

@@ -1,0 +1,28 @@
+@import "styles/cards.css";
+@import "styles/background.css";
+
+#access-editor {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  text-decoration: none;
+  font-size: 1.7rem;
+  background-color: #3a38be;
+  border-radius: 3rem;
+  user-select: none;
+  padding: 0.5rem;
+  box-shadow: 3px 3px 10px 5px rgba(0, 0, 0, 0.75);
+}
+
+#access-editor:hover {
+  background-color: #5350f0;
+  box-shadow: 3px 3px 10px 5px rgba(27, 27, 27, 0.75);
+}
+
+.container {
+  position: relative;
+}
+
+#got-it {
+  color: red;
+}
