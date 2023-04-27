@@ -205,14 +205,14 @@
   font-size: 1rem;
 }
 
-#definition-input, #term-input {
+.definition-input, .term-input {
   background-color: transparent;
   outline: none;
   border: none;
   border-bottom: 3px solid #fff;
 }
 
-#definition-input{
+.definition-input{
   max-width: 30rem;
   max-height: 4rem;
 
@@ -225,7 +225,7 @@
   font-size: 0.9rem;
 }
 
-#term-input {
+.term-input {
   font-size: 2rem;
   width: 15rem;
 }

@@ -32,13 +32,7 @@ let level2 = [
 let level3 = [];
 let level4 = [];
 let level5 = [];
-const allSaves = [
-  "level1Save",
-  "level2Save",
-  "level3Save",
-  "level4Save",
-  "level5Save",
-];
+const saveName = "level1Save"
 
 // Inputs
 let selectedCard;
@@ -49,6 +43,7 @@ let numIndex = 1;
 // Reset Button
 const resetBtn = document.querySelector("#reset-all");
 
+level1 = localStorage.setItem(saveName, null);
 // ----------------------------------------------
 main();
 
@@ -207,15 +202,18 @@ function moveCardDown() {
 
 function loadPreviousCards() {
   let noCards = true;
-  for (let i = 0; i < allSaves.length; i++) {
-    const currentSave = localStorage.getItem(allSaves[i]);
+    let currentSave = JSON.parse(localStorage.getItem(saveName));
     // If there are no cards in the save
-    if (currentSave == null) reassignLevel(i + 1, []);
-    else if (currentSave.isArray()) {
+    if (currentSave == null) level1 = [];
+    else if (Array.isArray(currentSave)) {
       // If there is content in the save
       if (currentSave.length !== 0) {
         noCards = false;
-        reassignLevel(i + 1, currentSave);
+        level1 = localStorage.getItem(saveName);
+        level2 = [];
+        level3 = [];
+        level4 = [];
+        level5 = [];
       }
     }
 
@@ -233,7 +231,7 @@ function loadPreviousCards() {
       // level5 = [];
     }
   }
-}
+
 
 function updateLevelNums() {
   const allLevelsArr = [level1, level2, level3, level4, level5];
@@ -272,11 +270,6 @@ function switchCard(termPar, definitionPar, isRight) {
   );
 }
 
-
-/*
-
-            */
-
 const editorBtn = document.querySelector("#access-editor");
 const studyBtn = document.querySelector("#study-btn");
 const editor = document.querySelector(".editor");
@@ -287,6 +280,7 @@ studyBtn.addEventListener("click", function () {
   studyBtn.classList.add("hidden");
   editorBtn.classList.remove("hidden");
   editor.classList.add("hidden");
+  loadNewCards();
 });
 
 
@@ -302,11 +296,11 @@ addNewBtn.addEventListener("click", function () {
   <div class="edit-card editor-item">
     <div class="edit-term">
       <h1 class="edit-label">Term</h1>
-      <input id="term-input"/>
+      <input class="term-input"/>
     </div>
     <div class="edit-def">
       <h1 class="edit-label">Definition</h1>
-      <textarea id="definition-input"></textarea>
+      <textarea class="definition-input"></textarea>
     </div>
     <div class="edit-options">
       <img class="delete" src="imgs/delete-emoji.png" alt="delete!">
@@ -315,8 +309,26 @@ addNewBtn.addEventListener("click", function () {
   `)
 });
 
+function loadNewCards(){
+  const allTerms = document.querySelectorAll(".term-input");
+  const allDefs = document.querySelectorAll(".definition-input");
+
+  level1 = [];
+  level2 = [];
+  level3 = [];
+  level4 = [];
+  level5 = [];
+  for(let i = 0; i < allTerms.length; i++) {
+    level1.push([allTerms[i].value, allDefs[i].value]);
+  }
+
+  localStorage.setItem(saveName, JSON.stringify(level1));
+
+  loadLevel(1)
+}
+
 function loadEditorCards(){
-  const combinedCards = [...level1, ...level2, ...level3, ...level4, ...level5]
+  const combinedCards = [...level1, ...level2, ...level3, ...level4, ...level5].sort()
   let allTerms = [];
   let allDefs = [];
 
@@ -332,11 +344,11 @@ function loadEditorCards(){
     <div class="edit-card editor-item">
       <div class="edit-term">
         <h1 class="edit-label">Term</h1>
-        <input id="term-input" value="${allTerms[i]}"/>
+        <input class="term-input" value="${allTerms[i]}"/>
       </div>
       <div class="edit-def">
         <h1 class="edit-label">Definition</h1>
-        <textarea id="definition-input">${allDefs[i]}</textarea>
+        <textarea class="definition-input">${allDefs[i]}</textarea>
       </div>
       <div class="edit-options">
         <img class="delete" src="imgs/delete-emoji.png" alt="delete!">
