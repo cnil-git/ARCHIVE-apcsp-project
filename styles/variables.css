@@ -20,7 +20,8 @@ Now I will list the bookmarks:
 
 :root {
   /* <CARDS> */
-  --card-color: #000;
+  --card-color-front: #5e46aa;
+  --card-color-back: #3b2a72;
   --initial-y: none;
   --flip-angle: 20deg;
   --slide-out-time: none;

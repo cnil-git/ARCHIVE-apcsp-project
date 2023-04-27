@@ -5,6 +5,7 @@
   margin: 0;
   box-sizing: border-box;
   font-family: "Work Sans", sans-serif;
+  color: white;
 }
 
 body,
@@ -40,24 +41,49 @@ html,
   text-align: center;
   border-radius: 0.5rem;
   box-shadow: 5px 5px 15px black;
+  border: 3px dashed #000;
+}
+
+.level:hover{
+  cursor: pointer;
 }
 
 #level-1 {
-  background-color: #6bd117;
+  background-color: #6bd117a7;
+  border-color: #6bd117;
 }
 
 #level-2 {
-  background-color: #f0dc2f;
+  background-color: #f0dd2fb1;
+  border-color: #f0dc2f;
 }
 
 #level-3 {
-  background-color: #e68414;
+  background-color: #e6841492;
+  border-color: #e68414;
 }
 
 #level-4 {
-  background-color: #f71919;
+  background-color: #f719198c;
+  border-color: #f71919;
 }
 
 #level-5 {
-  background-color: #740909;
+  background-color: #8509098a;
+  border-color: #850909;
+}
+
+.marker{
+  transform: rotate(-90deg);
+  position: absolute;
+  right: 37.5%;
+  top: 90%;
+  color:#3561ff;
+  -webkit-text-stroke-width: 3px;
+  -webkit-text-stroke-color: black;
+  user-select: none;
+}
+
+.relative {
+  position: relative;
 }

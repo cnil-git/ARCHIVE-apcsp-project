@@ -12,43 +12,65 @@
 <body>
   <div class="container">
 
-    <div class="flashcard">
+    <div class="">
       <div class="card">
         <div class="card-container">
-          <div class="card-front">
-            <h1 id="term">Click Me!</h1>
-          </div>
-          <div class="card-back">
-            <p id="definition"></p>
-          </div>
+          
+        </div>
+
+        <div class="cleared hidden">
+          <h1>Nice! This Level is cleared!</h1>
+          <p>Click on the levels on the bottom of the page</p>
         </div>
       </div>
 
       <div id="options">
-        <button id="got-it">✓</button>
-        <button id="missed-it">✗</button>
+        <button id="got-it" class="choice-btn">✓</button>
+        <button id="missed-it" class="choice-btn">✗</button>
       </div>
+
       <div id="levels">
-        <div class="level" id="level-1">
-          <h1>0</h1>
+        <div class="relative">
+          <div class="level" id="level-1">
+            <h1 class="level-label">0</h1>
+          </div>
+          <h1 class="marker hidden" id="mark-1">➤</h1>
         </div>
-        <div class="level" id="level-2">
-          <h1>0</h1>
+
+        <div class="relative">
+          <div class="level" id="level-2">
+            <h1 class="level-label">0</h1>
+          </div>
+          <h1 class="marker hidden" id="mark-2">➤</h1>
         </div>
-        <div class="level" id="level-3">
-          <h1>0</h1>
+
+        <div class="relative">
+          <div class="level" id="level-3">
+            <h1 class="level-label">0</h1>
+          </div>
+          <h1 class="marker hidden" id="mark-3">➤</h1>
         </div>
-        <div class="level" id="level-4">
-          <h1>0</h1>
+
+        <div class="relative">
+          <div class="level" id="level-4">
+            <h1 class="level-label">0</h1>
+          </div>
+          <h1 class="marker hidden" id="mark-4">➤</h1>
         </div>
-        <div class="level" id="level-5">
-          <h1>0</h1>
+
+        <div class="relative">
+          <div class="level" id="level-5">
+            <h1 class="level-label">0</h1>
+          </div>
+          <h1 class="marker hidden" id="mark-5">➤</h1>
         </div>
+
       </div>
     </div>
 
-    <a href="pages/editor.html" id="access-editor">✏️</a>
-  </div>
+    <a href="pages/editor.html" id="access-editor" class="config-btn"><img src="imgs/pencil-emoji.png" alt="Edit!"/></a>
+    <a id="reset-all" class="config-btn"><img src="imgs/restart-emoji.png" alt="Edit!"/></a>
+  </div>  
 
   <script src="script.js"></script>
 </body>
