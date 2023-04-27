@@ -12,7 +12,7 @@
   text-align: center;
 }
 
-button{
+button {
   user-select: none;
 }
 
@@ -28,7 +28,7 @@ button{
   border-radius: 30px;
 }
 
-.card-container:hover{
+.card-container:hover {
   cursor: pointer;
 }
 
@@ -49,10 +49,9 @@ button{
   -webkit-backface-visibility: hidden;
   border-radius: inherit;
   padding: 1rem;
-  
 }
 
-.card-front{
+.card-front {
   background-image: linear-gradient(to bottom right, #140e74, #06092a);
 }
 

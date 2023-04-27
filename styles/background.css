@@ -30,6 +30,13 @@ html,
   flex-direction: row;
 }
 
+.disabled {
+  pointer-events: none !important;
+  cursor: not-allowed !important;
+  opacity: 0.5 !important;
+  box-shadow: none !important;
+}
+
 .level {
   background-color: #160477;
   width: 5rem;
@@ -44,7 +51,7 @@ html,
   border: 3px dashed #000;
 }
 
-.level:hover{
+.level:hover {
   cursor: pointer;
 }
 
@@ -73,12 +80,12 @@ html,
   border-color: #850909;
 }
 
-.marker{
+.marker {
   transform: rotate(-90deg);
   position: absolute;
   right: 37.5%;
   top: 90%;
-  color:#3561ff;
+  color: #3561ff;
   -webkit-text-stroke-width: 3px;
   -webkit-text-stroke-color: black;
   user-select: none;
