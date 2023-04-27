@@ -9,7 +9,6 @@ let termText = document.querySelector("#term");
 let definitionText = document.querySelector("#definition");
 const numText = document.querySelectorAll(".card-num");
 const clearedScreen = document.querySelector(".cleared");
-
 // Buttons
 const gotItBtn = document.querySelector("#got-it");
 const missedItBtn = document.querySelector("#missed-it");
@@ -271,4 +270,78 @@ function switchCard(termPar, definitionPar, isRight) {
     () => cardContainerEl.classList.remove("slide-out"),
     cardSlideTimeMs
   );
+}
+
+
+/*
+
+            */
+
+const editorBtn = document.querySelector("#access-editor");
+const studyBtn = document.querySelector("#study-btn");
+const editor = document.querySelector(".editor");
+const addNewDiv = document.querySelector(".add-new");
+const addNewBtn = document.querySelector("#addnew-btn");
+
+studyBtn.addEventListener("click", function () {
+  studyBtn.classList.add("hidden");
+  editorBtn.classList.remove("hidden");
+  editor.classList.add("hidden");
+});
+
+
+editorBtn.addEventListener("click", function () {
+  editorBtn.classList.add("hidden");
+  editor.classList.remove("hidden");
+  studyBtn.classList.remove("hidden");
+  loadEditorCards()
+})
+
+addNewBtn.addEventListener("click", function () {
+  addNewDiv.insertAdjacentHTML("beforebegin", `
+  <div class="edit-card editor-item">
+    <div class="edit-term">
+      <h1 class="edit-label">Term</h1>
+      <input id="term-input"/>
+    </div>
+    <div class="edit-def">
+      <h1 class="edit-label">Definition</h1>
+      <textarea id="definition-input"></textarea>
+    </div>
+    <div class="edit-options">
+      <img class="delete" src="imgs/delete-emoji.png" alt="delete!">
+    </div>
+  </div>
+  `)
+});
+
+function loadEditorCards(){
+  const combinedCards = [...level1, ...level2, ...level3, ...level4, ...level5]
+  let allTerms = [];
+  let allDefs = [];
+
+  for (let i = 0; i < combinedCards.length; i++) {
+    allTerms.push(combinedCards[i][0]);
+    allDefs.push(combinedCards[i][1]);
+  }
+
+  editor.innerHTML = "";
+  editor.insertAdjacentElement("afterbegin", addNewDiv);
+  for(let i = 0; i < allTerms.length; i++){
+    addNewDiv.insertAdjacentHTML("beforebegin", `
+    <div class="edit-card editor-item">
+      <div class="edit-term">
+        <h1 class="edit-label">Term</h1>
+        <input id="term-input" value="${allTerms[i]}"/>
+      </div>
+      <div class="edit-def">
+        <h1 class="edit-label">Definition</h1>
+        <textarea id="definition-input">${allDefs[i]}</textarea>
+      </div>
+      <div class="edit-options">
+        <img class="delete" src="imgs/delete-emoji.png" alt="delete!">
+      </div>
+    </div>
+    `)
+  }
 }

@@ -75,13 +75,13 @@
   cursor: pointer;
 }
 
-#study {
+#study-btn {
   background-color: #38be94;
   top: 1rem;
-  left: 1rem;
+  right: 1rem;
 }
 
-#study:hover {
+#study-btn:hover {
   background-color: #3ae4ae;
   box-shadow: 3px 3px 10px 5px #4a4a4abf;
   cursor: pointer;
@@ -96,4 +96,142 @@
 #access-editor:hover {
   background-color: #5350f0;
   box-shadow: 3px 3px 10px 5px #4a4a4abf;
+}
+
+.editor {
+  width: 70%;
+  height: 85%;
+  border-radius: 1rem;
+  background-image: linear-gradient(to bottom right, #453594, #0d0225);
+  box-shadow: 0px 0px 300px 5px #297fd5;
+  padding: 1rem 2rem;
+  overflow-y: auto;
+}
+
+.editor-item{
+  /* border: 5px solid black; */
+  width: 100%;
+  height: 7rem;
+  margin: 1rem 0rem;
+  border-radius: 1rem;
+  box-shadow: 0px 0px 30px 1px #000;
+}
+
+
+
+.edit-card {
+  display: flex;
+  background-color: #5e5ef946;
+}
+
+.edit-term, .edit-def{
+  height: 100%;
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.edit-options{
+  height: 100%;
+  width: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.delete {
+  width: 3rem;
+  filter: brightness(0%);
+}
+
+.delete:hover{
+  animation: fade-red 0.5s ease-in-out forwards;
+  filter: none;
+  cursor: pointer;
+}
+
+
+#addnew-btn {
+  background-color: transparent;
+  border: none;
+  font-size: 3.3rem;
+  background-color: #5956a9;
+  padding: 0.3rem 1.3rem;
+  border-radius: 3rem;
+  box-shadow: 0px 0px 20px 5px #000;
+}
+
+#addnew-btn:hover{
+  animation: spin 2s ease-in-out forwards;
+  cursor: pointer;
+  opacity: 0.9;
+}
+
+.add-new{
+  border: 5px dashed #7774c1;
+  background-color: #00000042;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@keyframes spin {
+  0% {
+      transform:rotate(0deg);
+  }
+  40% {
+      transform:rotate(450deg);
+  }
+
+  100% {
+    transform:rotate(360deg);
+  }
+}
+
+@keyframes fade-red {
+  from {
+    filter: brightness(0%);
+  }
+
+  to {
+    filter: brightness(100%);
+  }
+}
+
+.edit-label{
+  font-size: 1rem;
+}
+
+#definition-input, #term-input {
+  background-color: transparent;
+  outline: none;
+  border: none;
+  border-bottom: 3px solid #fff;
+}
+
+#definition-input{
+  max-width: 30rem;
+  max-height: 4rem;
+
+  min-width: 10rem;
+  min-height: 2.2rem;
+
+  width: 25rem;
+  height: 2.2rem;
+
+  font-size: 0.9rem;
+}
+
+#term-input {
+  font-size: 2rem;
+  width: 15rem;
+}
+
+.editor{
+  position: absolute;
+  top: 7%;
+  box-shadow: 0px 0px 1000px 30px #000;
 }
