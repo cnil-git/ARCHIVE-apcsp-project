@@ -1,0 +1,15 @@
+@import "cards.css";
+@import "background.css";
+@import "editor.css";
+@import "buttons.css";
+
+.disabled {
+  pointer-events: none !important;
+  cursor: not-allowed !important;
+  opacity: 0.5 !important;
+  box-shadow: none !important;
+}
+
+.hidden {
+  display: none !important;
+}
